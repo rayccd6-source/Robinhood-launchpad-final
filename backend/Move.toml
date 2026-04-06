@@ -1,0 +1,23 @@
+[package]
+name = "backend"
+edition = "2024"         # edition = "legacy" to use legacy (pre-2024) Move
+# license = ""           # e.g., "MIT", "GPL", "Apache 2.0"
+# authors = ["..."]      # e.g., ["Joe Smith (joesmith@noemail.com)", "John Snow (johnsnow@noemail.com)"]
+# [address]
+# faucet = "0x0"
+
+[dependencies]
+onchain_invoice = { git = "https://github.com/Bermu-DAO/sui_workshop_3.git", subdir = "onchain_invoice", rev = "master", addr_subst = { "onchain_invoice" = "0x77d038eab496596bfee3cc6558cdd85e6da54c7b2e8cfcf876b46f09d57d76fe" } }
+# #sui move build coinusdc = { local = "../../coinusdc" } 
+
+[addresses]
+faucet = "0x0"
+backend = "0x0"
+treasuryother = "0x0"
+
+# `onchain_invoice` is provided by the dependency declaration above via addr_subst.
+# Do not re-declare it here to avoid duplicate address definitions.
+#sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
+
+# Read more about the package management system options:
+# https://docs.sui.io/guides/developer/sui-101/move-package-management
