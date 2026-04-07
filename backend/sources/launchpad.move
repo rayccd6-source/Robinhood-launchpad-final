@@ -53,7 +53,7 @@ fun init(ctx: &mut TxContext) {
     );
 }
 
-public fun new<T>(//建treasury 和launchpad
+public fun new<T>(//建launchpad
     _admin: &AdminCap,
     tokens_per_pass: u64,
     base_price: u64,
@@ -93,6 +93,9 @@ public fun force_next_phase<T>(
     _admin: &AdminCap,
 ) {
     pad.phase = pad.phase + 1;
+    if (pad.phase > PHASE_SETTLEMENT) {
+        pad.phase = 0;
+    }
 }
 
 
@@ -134,7 +137,7 @@ public fun buy_priority_pass<T>(/// Phase 1：Priority Pass 認購（雙金庫 +
         let amount_80 = coin::value(&payment_coin);// 剩餘 80% COINUSDC：記錄數量後存入平台金庫作為抵押準備金
         mytreasury::givemecoin(platform_treasury, payment_coin);
 
-        let minted_usdc: Coin<USDC> = coin::mint<USDC>(usdc_treasury_cap, amount_80, ctx)//mint Coin<USDC>
+        let minted_usdc: Coin<USDC> = coin::mint<USDC>(usdc_treasury_cap, amount_80, ctx);//mint Coin<USDC>
         inv_treasury::input(the_invoice_treasury, minted_usdc, ctx);//將mint出的 Coin<USDC> 存入 InvoiceTreasury
 
         let tax_amount = amount_80 * 10;//計算 TAX_COIN 數量（1 USDC = 10 TAX_COIN）

@@ -19,11 +19,11 @@ deps = { MoveStdlib = "MoveStdlib" }
 [pinned.testnet.backend]
 source = { root = true }
 use_environment = "testnet"
-manifest_digest = "F65B75ECCF049E0780C0D5EA83A22DC408EE7A4130923B5915F4A6322155B66A"
+manifest_digest = "41FCE95A79FD7FB2D2B16306F41E2D161835D65286C0722790707CCFC5E888AA"
 deps = { onchain_invoice = "onchain_invoice", std = "MoveStdlib", sui = "Sui" }
 
 [pinned.testnet.onchain_invoice]
-source = { git = "https://github.com/Bermu-DAO/sui_workshop_3.git", subdir = "onchain_invoice", rev = "c34b657c7dfeb424acf6052dab24e0bfe4d65c29" }
+source = { git = "https://github.com/rayccd6-source/sui_workshop_3-.git", subdir = "onchain_invoice", rev = "893348bc4136edfd92a81e9fe886c33ba9582a92" }
 use_environment = "testnet"
 manifest_digest = "5745706258F61D6CE210904B3E6AE87A73CE9D31A6F93BE4718C442529332A87"
 deps = { std = "MoveStdlib", sui = "Sui" }

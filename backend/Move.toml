@@ -7,13 +7,14 @@ edition = "2024"         # edition = "legacy" to use legacy (pre-2024) Move
 # faucet = "0x0"
 
 [dependencies]
-onchain_invoice = { git = "https://github.com/Bermu-DAO/sui_workshop_3.git", subdir = "onchain_invoice", rev = "master", addr_subst = { "onchain_invoice" = "0x77d038eab496596bfee3cc6558cdd85e6da54c7b2e8cfcf876b46f09d57d76fe" } }
+onchain_invoice = { git = "https://github.com/rayccd6-source/sui_workshop_3-.git", subdir = "onchain_invoice", rev = "main" }
 # #sui move build coinusdc = { local = "../../coinusdc" } 
 
 [addresses]
 faucet = "0x0"
 backend = "0x0"
 treasuryother = "0x0"
+onchain_invoice = "0x5b3cb78005cf992cec170ae62784a467dc2e7b03a4f2f4f88c91d7feb4916fd7"
 
 # `onchain_invoice` is provided by the dependency declaration above via addr_subst.
 # Do not re-declare it here to avoid duplicate address definitions.
