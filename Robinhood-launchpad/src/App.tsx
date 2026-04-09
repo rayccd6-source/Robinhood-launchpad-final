@@ -14,7 +14,6 @@ import ProtocolDocs from './components/ProtocolDocs';
 import WalletDashboard from './components/WalletDashboard'; 
 
 import { useTransactionExecution } from './hooks/useTransactionExecution';
-// 🌟 引入所有需要的 Hooks 與常數
 import { 
   request_faucet,
   withdraw_from_project_treasury,
@@ -142,7 +141,7 @@ function AppContent() {
         }
       }
       
-      setWinningInvoiceId(foundWinner);
+      setWinningInvoiceId(foundWinner || null);
     } catch (error) {
       console.error("Auto-check lottery failed:", error);
     }
