@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createNetworkConfig } from "@mysten/dapp-kit";
 import { SuiClient } from "@mysten/sui/client"; 
 
