@@ -6,7 +6,7 @@ export const USDC_COIN_TYPE = `${USDC_PACKAGE_ID}::coinusdc::COINUSDC`;
 
 export const PROJECT_TREASURY_SHARED_ID = "0x1d4d07ca5e7873ef2506e0f2344d44047be1d1a826071f168e73ac7e500db2b8";
 export const PROJECT_TREASURYother_SHARED_ID = "0xe13e48c3f7d4bb57a324e56271b385fcf1a66799ed0d8a293408f8e20be6c0b2";
-export const LAUNCHPAD_SHARED_ID = "0x98bba7ce14d4a45ceaff5c7c349eabff6ba16a22a2f9b5ea61347cdd9aec79df";
+export const LAUNCHPAD_SHARED_ID = "0x324050b6f1ff0f42f3577436725156fcb3d13d9a44f4488b5bb244dc8347e289";
 export const ADMIN_CAP_ID = "0xafbbde207cd727ef4a372887097ef47f0f4b5dadaa78a1ae32147c2a75c3cf14"; 
 
 const treasurySharedId = "0x5e91a6f1b2878ed1e63d0bf0656ff8a216129a2bcfff9f55896d1fd5fbcbedb5"; 
@@ -70,7 +70,7 @@ export async function request_faucet_suix(tx: Transaction, amount: number) {
     tx.moveCall({
         target: `${LAUNCHPAD_PACKAGE_ID}::coinsuix::request_faucet_suix`,
         arguments: [
-            tx.object("0xfd2e4cbc2e96fcb015b95f68b921534965a8e5c6264d5163dbe22c64c5c09ef4"), // 使用你提供的 suicoin ID
+            tx.object("0xfd2e4cbc2e96fcb015b95f68b921534965a8e5c6264d5163dbe22c64c5c09ef4"), 
             tx.pure.u64(amount),
         ],
     });
