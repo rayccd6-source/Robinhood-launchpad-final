@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useCurrentAccount, useSuiClient } from '@mysten/dapp-kit';
 import { Transaction } from "@mysten/sui/transactions";
 import toast from 'react-hot-toast';
@@ -115,7 +115,7 @@ export default function QuickSwapModal({ onClose, defaultToken = 'SUIX' }: Quick
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 `z-100` flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
       {/* 點擊背景關閉 */}
       <div className="absolute inset-0" onClick={onClose}></div>
 

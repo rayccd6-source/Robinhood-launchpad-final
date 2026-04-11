@@ -1,6 +1,5 @@
 import { createNetworkConfig } from "@mysten/dapp-kit";
-// 修正：直接從最頂層引入，避開 /client 子路徑
-import { SuiClient } from "@mysten/sui"; 
+import { SuiClient } from "@mysten/sui/client"; 
 
 const { networkConfig, useNetworkVariable, useNetworkVariables } = createNetworkConfig({
   testnet: {
