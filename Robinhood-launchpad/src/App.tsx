@@ -423,7 +423,7 @@ function AppContent() {
     setShowDepositModal(true);
   };
 
-  const handleClaimClick = (project: any) => {
+  const handleClaimClick = () => {
     if (currentPhase !== 3) {
       setWrongPhaseMessage({ 
         title: `Not in Phase 3 (Current: ${currentPhase})`, 
@@ -432,7 +432,7 @@ function AppContent() {
       setShowWrongPhaseModal(true);
       return;
     }
-    executeClaim(project);
+    executeClaim();
   };
 
   const executePlaceBid = async () => {
@@ -532,7 +532,7 @@ function AppContent() {
     }
   };
 
-  const executeClaim = async (project: any) => {
+  const executeClaim = async () => {
     if (!currentAccount) return;
     try {
       const tx = new Transaction();
@@ -583,7 +583,7 @@ function AppContent() {
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <nav className="relative z-10 flex justify-between items-center p-6 border-b border-white/10 bg-black/30 backdrop-blur-md">
-        <h1 className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 cursor-pointer" onClick={() => setActiveTab('trending')}>
+        <h1 className="text-3xl font-black text-transparent bg-clip-text `bg-linear-to-r` from-blue-400 to-cyan-300 cursor-pointer" onClick={() => setActiveTab('trending')}>
           RobinHood.Pad
         </h1>
         
@@ -650,7 +650,7 @@ function AppContent() {
               </button>
             </div>
 
-            <div className="animate-fade-in min-h-[400px]">
+            <div className="animate-fade-in `min-h-100`">
               {activeTab === 'trending' && (
                 <div className="space-y-6">
                   
@@ -676,7 +676,7 @@ function AppContent() {
                       currentPhase={currentPhase}
                       onBuyPassClick={() => handleBuyPassClick(proj)}      
                       onDepositClick={() => handleDepositClick(proj)}      
-                      onClaimClick={() => handleClaimClick(proj)}          
+                      onClaimClick={() => handleClaimClick()}          
                     />
                   ))}
                 </div>
@@ -703,7 +703,7 @@ function AppContent() {
 
       {/* 👑 老闆專屬提款與結算後台 */}
       {isBoss && (
-        <div className="fixed bottom-6 right-6 z-[100] w-80 bg-gray-900/95 backdrop-blur-xl border border-blue-500/30 p-5 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)] animate-fade-in">
+        <div className="fixed bottom-6 right-6 `z-100` w-80 bg-gray-900/95 backdrop-blur-xl border border-blue-500/30 p-5 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)] animate-fade-in">
           <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
             <div className="flex items-center gap-2">
               <span className="text-2xl">👑</span>
@@ -783,9 +783,9 @@ function AppContent() {
 
       {/* ⚠️ 防呆階段錯誤提示視窗 */}
       {showWrongPhaseModal && (
-        <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
+        <div className="fixed inset-0 `z-300` flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-fade-in">
           <div className="bg-[#0b0e14]/95 border border-orange-500/30 w-full max-w-sm rounded-3xl p-8 text-center shadow-[0_0_40px_rgba(249,115,22,0.15)] relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 `bg-linear-to-r` from-transparent via-orange-500 to-transparent"></div>
             
             <div className="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-orange-500/20 text-3xl">
               ⏳
@@ -808,7 +808,7 @@ function AppContent() {
 
       {/* 💧 Faucet 成功 Modal */}
       {showFaucetModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 `z-200` flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
           <div className="bg-gray-900 border border-blue-500/30 w-full max-w-sm rounded-3xl p-8 text-center shadow-[0_0_50px_rgba(59,130,246,0.2)]">
             <div className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-blue-500/30"><span className="text-4xl">💧</span></div>
             <h3 className="text-2xl font-black text-white mb-2 tracking-tight">Faucet Success</h3>
@@ -822,7 +822,7 @@ function AppContent() {
 
       {/* 🎟️ 拍賣競標 Modal */}
       {showBuyPassModal && selectedProject && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 `z-200` flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
           <div className="bg-[#0b0e14] border border-blue-500/30 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden p-6 space-y-5">
             <div className="flex justify-between items-center border-b border-white/5 pb-4">
                <h3 className="text-lg font-bold text-white uppercase tracking-wider">Place Priority Bid</h3>
@@ -864,7 +864,7 @@ function AppContent() {
 
       {/* 🏦 Pure Pool 存款 Modal */}
       {showDepositModal && selectedProject && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 `z-200` flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
           <div className="bg-[#0b0e14] border border-purple-500/30 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden p-6 space-y-5">
             <div className="flex justify-between items-center border-b border-white/5 pb-4">
                <h3 className="text-lg font-bold text-white uppercase tracking-wider">Join Jackpot Pool</h3>
@@ -905,7 +905,7 @@ function AppContent() {
 
       {/* ✅ 交易成功 Modal */}
       {showSuccessModal && (
-        <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 `z-250` flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
           <div className="bg-gray-900 border border-green-500/30 w-full max-w-sm rounded-3xl p-8 text-center shadow-2xl">
             <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-5 border border-green-500/30">
               <span className="text-3xl">✅</span>
