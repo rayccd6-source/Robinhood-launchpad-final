@@ -273,7 +273,7 @@ export default function AlphaSwap() {
         </div>
 
         <div className="flex flex-col lg:flex-row border-b border-white/5">
-          <div className="flex-1 p-6 border-b lg:border-b-0 lg:border-r border-white/5 relative `min-h-87.5` flex flex-col bg-black/10 overflow-hidden">
+          <div className="flex-1 p-6 border-b lg:border-b-0 lg:border-r border-white/5 relative min-h-[350px] flex flex-col bg-black/10 overflow-hidden">
             <div className="flex justify-between text-[10px] font-mono text-gray-500 mb-4 tracking-widest uppercase pb-2 border-b border-white/5 relative z-20">
               <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#00ff88]"></span> Live Index</span>
               <span>H: ${maxHigh.toFixed(3)} &nbsp;&nbsp; L: ${minLow.toFixed(3)}</span>
@@ -284,7 +284,7 @@ export default function AlphaSwap() {
                 <span>{((maxHigh + minLow) / 2).toFixed(3)}</span>
                 <span>{minLow.toFixed(3)}</span>
               </div>
-              <div className="flex-1 h-full flex items-end justify-between `gap-0.5` relative ml-2">
+              <div className="flex-1 h-full flex items-end justify-between gap-1 relative ml-2">
                 {relevantOrders.map((order) => {
                   const bottomOffset = ((order.price - minLow) / range) * 100;
                   return (
@@ -315,7 +315,7 @@ export default function AlphaSwap() {
             </div>
           </div>
 
-          <div className="w-full `lg:w-90` p-6 bg-[#0f131a] flex flex-col space-y-6">
+          <div className="w-full lg:w-[360px] p-6 bg-[#0f131a] flex flex-col space-y-6">
             <div className="flex gap-2">
               <button onClick={() => setIsSwapModalOpen(true)} className="flex-1 py-3 rounded-xl font-bold text-sm bg-black/40 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-950/30 transition-all flex items-center justify-center gap-2">💱 Swap</button>
               <button onClick={() => setTradeType('market')} className={`flex-1 py-3 rounded-xl font-bold text-sm transition-all ${tradeType === 'market' ? 'bg-cyan-500 text-black shadow-[0_0_15px_rgba(6,182,212,0.3)]' : 'bg-transparent text-gray-500 hover:text-gray-300'}`}>Market</button>
@@ -384,7 +384,7 @@ export default function AlphaSwap() {
         </div>
 
         {/* 底部面板 */}
-        <div className="`min-h-62.5` bg-[#05070a] flex flex-col">
+        <div className="min-h-[250px] bg-[#05070a] flex flex-col">
           <div className="flex border-b border-white/5 px-6 pt-4 gap-6">
             <button onClick={() => setBottomTab('orders')} className={`pb-3 text-sm font-bold uppercase tracking-widest transition-all ${bottomTab === 'orders' ? 'text-white border-b-2 border-cyan-500' : 'text-gray-600 hover:text-gray-300'}`}>
               Open Orders ({placedLimitOrders.length})
@@ -454,7 +454,7 @@ export default function AlphaSwap() {
       </div>
 
       {showSuccess && (
-        <div className="fixed inset-0 `z-200` flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
           <div className="bg-gray-900 border border-green-500/30 w-full max-w-sm rounded-3xl p-8 text-center shadow-[0_0_50px_rgba(34,197,94,0.2)] relative overflow-hidden">
             <div className="absolute top-[-20%] left-[-20%] w-40 h-40 bg-green-600/20 rounded-full blur-3xl pointer-events-none"></div>
             <div className="relative z-10">
